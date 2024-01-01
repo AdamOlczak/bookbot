@@ -1,5 +1,12 @@
+import sys
+
+
 def report(book_name):
-    book = __get_book(book_name)
+    try:
+        book = __get_book(book_name)
+    except FileNotFoundError:
+        print(f'Book "books/{book_name}" have not been found.', file=sys.stderr)
+        return
     words = __count_words(book)
     chars = __count_characters(book)
     print(f"--- Begin report of books/{book_name} ---")
