@@ -2,8 +2,10 @@ def __get_book(book):
     with open(f"books/{book}") as f:
         return f.read()
 
+
 def __count_words(text):
     return len(text.split())
+
 
 def __count_letters(text):
     letters = {}
@@ -13,6 +15,7 @@ def __count_letters(text):
         c = c.lower()
         letters[c] = letters.get(c, 0) + 1
     return letters
+
 
 def report(book_name):
     book = __get_book(book_name)
@@ -25,8 +28,10 @@ def report(book_name):
         print(f"The '{letter}' character was found {letters[letter]} times")
     print("--- End report ---")
 
+
 def main():
     report("frankenstein.txt")
+
 
 if __name__ == "__main__":
     main()
