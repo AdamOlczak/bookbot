@@ -3,12 +3,13 @@ def report(book_name):
     words = __count_words(book)
     chars = __count_characters(book)
     print(f"--- Begin report of books/{book_name} ---")
-    print(f"{words} found in the document")
-    print()
+    print(f"{words} word(s) have been found in the document")
     for c in chars:
         if not c.isalpha():
             continue
         print(f"The '{c}' character was found {chars[c]} times")
+    else:
+        print("No characters have been found in the document")
     print("--- End report ---")
 
 
