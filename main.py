@@ -1,11 +1,11 @@
-def get_book(book):
+def __get_book(book):
     with open(f"books/{book}") as f:
         return f.read()
 
-def count_words(text):
+def __count_words(text):
     return len(text.split())
 
-def count_letters(text):
+def __count_letters(text):
     letters = {}
     for c in text:
         if not c.isalpha():
@@ -15,9 +15,9 @@ def count_letters(text):
     return letters
 
 def report(book_name):
-    book = get_book(book_name)
-    words = count_words(book)
-    letters = count_letters(book)
+    book = __get_book(book_name)
+    words = __count_words(book)
+    letters = __count_letters(book)
     print(f"--- Begin report of books/{book_name} ---")
     print(f"{words} found in the document")
     print()
