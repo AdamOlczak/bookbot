@@ -1,21 +1,26 @@
 import sys
 
-from book import report
+from text import report
 
 
 def main():
     if len(sys.argv) < 2:
         usage()
         sys.exit(1)
-    filename = sys.argv[1]
-    report(filename)
+    filepath = sys.argv[1]
+    report(filepath)
 
 
 def usage():
-    print(f"Usage: {sys.argv[0]} filename")
-    print()
-    print("Arguments:")
-    print("\tfilename - filename of the book in books/ directory")
+    print(
+        "Analyzes and proivides text statistics on the given text file.",
+        file=sys.stderr,
+    )
+    print(file=sys.stderr)
+    print(f"Usage: {sys.argv[0]} filename", file=sys.stderr)
+    print(file=sys.stderr)
+    print("Arguments:", file=sys.stderr)
+    print("\tfilename - filepath to the document to be analyzed", file=sys.stderr)
 
 
 if __name__ == "__main__":

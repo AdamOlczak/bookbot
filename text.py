@@ -1,27 +1,27 @@
 import sys
 
 
-def report(book_name):
+def report(filepath):
     try:
-        book = __get_book(book_name)
+        book = __get_book(filepath)
     except FileNotFoundError:
-        print(f'Book "books/{book_name}" have not been found.', file=sys.stderr)
+        print(f'File "{filepath}" has not been found.', file=sys.stderr)
         return
     words = __count_words(book)
     chars = __count_characters(book)
-    print(f"--- Begin report of books/{book_name} ---")
+    print(f"--- Begin report for {filepath} ---")
     print(f"{words} word(s) have been found in the document")
     for c in chars:
         if not c.isalpha():
             continue
-        print(f"The '{c}' character was found {chars[c]} times")
+        print(f"The '{c}' character has been found {chars[c]} times")
     else:
         print("No characters have been found in the document")
     print("--- End report ---")
 
 
-def __get_book(book):
-    with open(f"books/{book}") as f:
+def __get_book(filepath):
+    with open(f"{filepath}") as f:
         return f.read()
 
 
